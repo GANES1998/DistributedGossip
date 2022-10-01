@@ -1,0 +1,9 @@
+# Output files
+ebin/
+
+# IDE .idea
+.idea
+
+*.dump
+
+temp.txt
