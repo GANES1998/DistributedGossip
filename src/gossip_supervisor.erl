@@ -16,9 +16,18 @@
 
 
 
-send_secret_message(WorkerPid) ->
-  % Send the secret message to the Worker Pid.
-  WorkerPid ! {rumer_from_supervisor, ganeson}.
+send_secret_message(WorkerPid, Algorithm) ->
+
+  case Algorithm of
+    gossip ->
+      % Send the secret message to the Worker Pid.
+      WorkerPid ! {rumer_from_supervisor, ganeson};
+    push_sum ->
+      % Send the first node, its sum and weight.
+      WorkerPid ! {message_from_supervisor, {1, 1}}
+  end.
+
+
 
 wait_for_message_completion(CurrentIndex, MaxWorkers) ->
   if
@@ -54,7 +63,7 @@ handle_2D(ActorCount, Topology, Algorithm) ->
   {ok, FirstWorkerPid} = dict:find({1, 1}, NewMappings),
 
   % Send the secret message to the chosen worker
-  send_secret_message(FirstWorkerPid),
+  send_secret_message(FirstWorkerPid, Algorithm),
 
   % Start the clock for finding wall clock time for convergence
   statistics(wall_clock),
@@ -79,7 +88,7 @@ handle_1D(ActorCount, Topology, Algorithm) ->
   {ok, FirstWorkerPid} = dict:find(1, NewMappings),
 
   % Send the secret message to the chosen worker
-  send_secret_message(FirstWorkerPid),
+  send_secret_message(FirstWorkerPid, Algorithm),
 
   % Start the clock for finding wall clock time for convergence
   statistics(wall_clock),

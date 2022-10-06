@@ -11,7 +11,7 @@
 
 
 %% API
--export([get_nearest_square_number/1, get_next_actor/3, check_if_list_converge_gossip/2, normalize_processes_count/2]).
+-export([get_nearest_square_number/1, get_next_actor/3, check_if_list_converge_gossip/2, normalize_processes_count/2, check_if_push_sum_converge/2, update_fixed_list/3]).
 
 
 get_nearest_square_number(Number) ->
@@ -36,6 +36,22 @@ check_if_list_converge_gossip(List, Message) ->
     fun(ListElement) -> ListElement == Message end,
     List
   ).
+
+check_if_push_sum_converge(List, MaxLength) ->
+  ListLength = lists:flatlength(List),
+  LengthSatisfied = ListLength == MaxLength,
+  if
+    LengthSatisfied ->
+      {FirstElementSum, _FirstElementWeight} = lists:nth(1, List),
+      lists:all(
+        fun({ElementSum, _ElementWeight}) ->
+%%          io:format("FirstElementSum ~p Element Sum ~p ~n", [FirstElementSum, ElementSum]),
+          erlang:abs(FirstElementSum - ElementSum) < 0.001
+        end,
+        List
+      );
+    true -> false
+  end.
 
 
 get_neighbouring_2d_actor(1, 1, _Rows, _Cols) ->
@@ -66,6 +82,10 @@ get_neighbouring_1d_actor(N, Max) when N == Max ->
 get_neighbouring_1d_actor(Position, _Max) ->
   [Position - 1, Position + 1].
 
+update_fixed_list(List, NewElement, MaxLength) ->
+  ModifiedList = lists:sublist(List, MaxLength - 1),
+  lists:append([NewElement], ModifiedList).
+
 choose_random_element(Array) ->
   ArrayLength = lists:flatlength(Array),
   RandomIndex = random:uniform(ArrayLength),
@@ -85,7 +105,7 @@ get_next_actor(CurrentActor, MaxActors, Topology) ->
       NextActors = get_neighbouring_2d_actor(CurrentX, CurrentY, Rows, Cols),
       NextActor = choose_random_element(NextActors),
       {NextX, NextY} = NextActor,
-      NextActor;
+      {NextX, NextY};
     twoDImperfect ->
       {CurrentX, CurrentY} = CurrentActor,
       {Rows, Cols} = MaxActors,

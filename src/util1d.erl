@@ -41,7 +41,7 @@ spawn1D(CurrentPosition, MaxPositions, Topology, Algorithm, Mapping) ->
       % Spawn the corresponding process and get the Process Id back
       SpawnedPid = case Algorithm of
                      gossip -> spawn_link(node(), gossip_worker, main, [CurrentPosition, MaxPositions, Topology, self()]);
-                     push_sum -> io:format("Push sum algorithm not yet implemented")
+                     push_sum -> spawn_link(node(), push_sum_worker, main, [CurrentPosition, MaxPositions, Topology, {CurrentPosition, 1}, self()])
                    end,
       spawn1D(CurrentPosition + 1, MaxPositions, Topology, Algorithm, dict:store(CurrentPosition, SpawnedPid, Mapping))
   end.
