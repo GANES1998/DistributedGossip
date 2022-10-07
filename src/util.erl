@@ -88,7 +88,7 @@ update_fixed_list(List, NewElement, MaxLength) ->
 
 choose_random_element(Array) ->
   ArrayLength = lists:flatlength(Array),
-  RandomIndex = random:uniform(ArrayLength),
+  RandomIndex = rand:uniform(ArrayLength),
   lists:nth(RandomIndex, Array).
 
 get_next_actor(CurrentActor, MaxActors, Topology) ->

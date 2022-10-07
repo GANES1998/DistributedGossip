@@ -37,6 +37,17 @@ wait_for_message_completion(CurrentIndex, MaxWorkers) ->
         {success, Message, Actor} ->
           io:format("Received Message [~p] from Actor [~p]~n", [Message, Actor]),
           wait_for_message_completion(CurrentIndex + 1, MaxWorkers)
+      %%  If we don't hear anything from workers for 5 seconds straight
+      after 5000 ->
+        if
+          CurrentIndex == 1 ->
+            %%  Still no worker has converged, So wait initial convergence to start
+            wait_for_message_completion(CurrentIndex, MaxWorkers);
+          true ->
+            %%  Some workers have started converging. So, it's unlikely the next nodes will converge.
+            io:format("Not heard from Any Workers for [ ~p ] ms. Convergance Ratio = ~p~n", [5000, (CurrentIndex - 1) / MaxWorkers]),
+            CurrentIndex - 1
+        end
       end
   end.
 
@@ -46,8 +57,9 @@ handle_2D(ActorCount, Topology, Algorithm) ->
 
   if
   % Print that the actor count is adjusted to support the topology
-    ActorCount =/= AdjustedActorCount -> io:format("Given Actor Count [~p] Not a square - It's adjusted to [~p]", [ActorCount, AdjustedActorCount]);
-    % Given Actor Count is a perfect square, So don't print anything.
+    ActorCount =/= AdjustedActorCount ->
+      io:format("Given Actor Count [~p] Not a square - It's adjusted to [~p]", [ActorCount, AdjustedActorCount]);
+  % Given Actor Count is a perfect square, So don't print anything.
     true -> io:format("")
   end,
   % Get rows and columns are sqrt of Actor Count.
@@ -69,13 +81,13 @@ handle_2D(ActorCount, Topology, Algorithm) ->
   statistics(wall_clock),
 
   % Wait for all the workers to return success.
-  wait_for_message_completion(1, Rows * Cols),
+  ConvergedNodes = wait_for_message_completion(1, Rows * Cols),
 
   % Stop the wall clock for calculating the time elapsed for convergence.
   {_, WallClockTime} = statistics(wall_clock),
 
   %% Print the statistics
-  io:format("Wall Clock Time elasped for all [~p] workers to conclude [~p]~n", [Rows * Cols, WallClockTime]).
+  io:format("Wall Clock Time elasped for all [~p] out of [~p] (~p %) workers to conclude [~p]!n", [ConvergedNodes, AdjustedActorCount, (ConvergedNodes / AdjustedActorCount * 100), WallClockTime]).
 
 handle_1D(ActorCount, Topology, Algorithm) ->
   % Get Mapping after spawning all processes corresponding to each row and column.
@@ -94,13 +106,13 @@ handle_1D(ActorCount, Topology, Algorithm) ->
   statistics(wall_clock),
 
   % Wait for all the workers to return success.
-  wait_for_message_completion(1, ActorCount),
+  ConvergedNodes = wait_for_message_completion(1, ActorCount),
 
   % Stop the wall clock for calculating the time elapsed for convergence.
   {_, WallClockTime} = statistics(wall_clock),
 
   %% Print the statistics
-  io:format("Wall Clock Time elasped for all [~p] workers to conclude [~p]!n", [ActorCount, WallClockTime]).
+  io:format("Wall Clock Time elasped for all [~p] out of [~p] (~p %) workers to conclude [~p]!n", [ConvergedNodes, ActorCount, (ConvergedNodes / ActorCount * 100), WallClockTime]).
 
 
 main(ActorCount, Topology, Algorithm) ->

@@ -63,7 +63,7 @@ spawn2D({CurrentRow, CurrentCol}, {Rows, Cols}, Topology, Algorithm, Mapping) ->
       %% Spawn the corresponding worker and get the Process Id back
       SpawnedPid = case Algorithm of
                      gossip -> spawn_link(node(), gossip_worker, main, [{CurrentRow, CurrentCol}, {Rows, Cols}, Topology, self()]);
-                     push_sum -> spawn_link(node(), push_sum_worker, main, [{CurrentRow, CurrentCol}, {Rows, Cols}, Topology, ((Rows - 1) * Cols) + Cols , self()])
+                     push_sum -> spawn_link(node(), push_sum_worker, main, [{CurrentRow, CurrentCol}, {Rows, Cols}, Topology, {((Rows - 1) * Cols) + Cols, 1 } , self()])
                    end,
 
       spawn2D({CurrentRow, CurrentCol + 1}, {Rows, Cols}, Topology, Algorithm, dict:store({CurrentRow, CurrentCol}, SpawnedPid, Mapping))
