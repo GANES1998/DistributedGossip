@@ -15,7 +15,7 @@ of [COP5615](https://ufl.instructure.com/courses/467300).
 
 #### Steps of Execution
 
-1. Fill the [variables.env](../../variables.env) with appropriate values.
+1. Fill the [variables.env](variables.env) with appropriate values.
 
    | Variable Name         | Use                                                                                       |
    |-----------------------|-------------------------------------------------------------------------------------------|
@@ -34,7 +34,7 @@ of [COP5615](https://ufl.instructure.com/courses/467300).
         * gossip
 
 
-![img.png](../../sameple_io.png)
+![img.png](doc/assets/sample_io.png)
 
 #### Answers
 
