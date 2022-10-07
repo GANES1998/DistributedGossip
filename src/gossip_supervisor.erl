@@ -31,8 +31,15 @@ send_secret_message(WorkerPid, Algorithm) ->
 
 wait_for_message_completion(CurrentIndex, MaxWorkers) ->
   if
-    CurrentIndex > MaxWorkers -> io:format("All [~p] Workers Agreed after gossip", [MaxWorkers]);
+    %% If all the workers have responded to the server.
+    CurrentIndex > MaxWorkers ->
+      io:format("All [~p] Workers Agreed after gossip ~n", [MaxWorkers]),
+
+      %% Return the total workers count. Same as Max Workers
+      CurrentIndex - 1;
     true ->
+
+      %% Wait to receive some message for 5 seconds
       receive
         {success, Message, Actor} ->
           io:format("Received Message [~p] from Actor [~p]~n", [Message, Actor]),
@@ -41,10 +48,10 @@ wait_for_message_completion(CurrentIndex, MaxWorkers) ->
       after 5000 ->
         if
           CurrentIndex == 1 ->
-            %%  Still no worker has converged, So wait initial convergence to start
+            %%  Still no worker has converged, So wait another 5 seconds for initial convergence to start
             wait_for_message_completion(CurrentIndex, MaxWorkers);
           true ->
-            %%  Some workers have started converging. So, it's unlikely the next nodes will converge.
+            %%  Some workers have started converging and no workers have converged for the last 5 seconds. So, it's unlikely the next nodes will converge.
             io:format("Not heard from Any Workers for [ ~p ] ms. Convergance Ratio = ~p~n", [5000, (CurrentIndex - 1) / MaxWorkers]),
             CurrentIndex - 1
         end

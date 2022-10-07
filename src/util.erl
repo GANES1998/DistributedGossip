@@ -23,20 +23,14 @@ get_nearest_square_number(Number) ->
     true -> (SqrtInt * SqrtInt)
   end.
 
-normalize_processes_count(Number, Algorithm) ->
-  case Algorithm of
-    full -> Number;
-    twoD -> get_nearest_square_number(Number);
-    line -> Number
-  end.
-
-
+%% Check if all elements of the list are same - secret.
 check_if_list_converge_gossip(List, Message) ->
   lists:all(
     fun(ListElement) -> ListElement == Message end,
     List
   ).
 
+% Check if the list has all elements with difference (10*-10)
 check_if_push_sum_converge(List, MaxLength) ->
   ListLength = lists:flatlength(List),
   LengthSatisfied = ListLength == MaxLength,
@@ -46,14 +40,14 @@ check_if_push_sum_converge(List, MaxLength) ->
       lists:all(
         fun({ElementSum, _ElementWeight}) ->
 %%          io:format("FirstElementSum ~p Element Sum ~p ~n", [FirstElementSum, ElementSum]),
-          erlang:abs(FirstElementSum - ElementSum) < 0.001
+          erlang:abs(FirstElementSum - ElementSum) < math:pow(10, -10)
         end,
         List
       );
     true -> false
   end.
 
-
+% Get neighbouring actor in the 2D grid.
 get_neighbouring_2d_actor(1, 1, _Rows, _Cols) ->
   [{2, 1}, {1, 2}, {2, 2}];
 get_neighbouring_2d_actor(1, N, _Rows, Cols) when N == Cols ->
@@ -73,8 +67,7 @@ get_neighbouring_2d_actor(X, Y, _Rows, Cols) when (Y == Cols) ->
 get_neighbouring_2d_actor(X, Y, _Rows, _Cols) ->
   [{X - 1, Y}, {X, Y - 1}, {X + 1, Y}, {X, Y + 1}, {X - 1, Y - 1}, {X + 1, Y - 1}, {X + 1, Y + 1}, {X - 1, Y + 1}].
 
-
-
+% Get neighbouring actor in the 1D line.
 get_neighbouring_1d_actor(1, _Max) ->
   [2];
 get_neighbouring_1d_actor(N, Max) when N == Max ->
@@ -82,15 +75,20 @@ get_neighbouring_1d_actor(N, Max) when N == Max ->
 get_neighbouring_1d_actor(Position, _Max) ->
   [Position - 1, Position + 1].
 
+% Update the fixed list. Adds the new element to the first of new list.
+% Ensures the list of size MaxLength - Removes older values when required.
 update_fixed_list(List, NewElement, MaxLength) ->
   ModifiedList = lists:sublist(List, MaxLength - 1),
   lists:append([NewElement], ModifiedList).
 
+% Choose a random element from the array. Helper function.
 choose_random_element(Array) ->
   ArrayLength = lists:flatlength(Array),
   RandomIndex = rand:uniform(ArrayLength),
   lists:nth(RandomIndex, Array).
 
+% Get the next actor based on the current actor, max actors and topology.
+% Both CurrentActor and MaxActors are tuples of {Row, Col} if the topology is 2D.
 get_next_actor(CurrentActor, MaxActors, Topology) ->
   case Topology of
     full ->
