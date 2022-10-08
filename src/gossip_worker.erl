@@ -74,7 +74,7 @@ listen_and_converge(CurrentActor, MaxActors, CurrentElement, MessageList, Global
         {rumer_from_worker, Rumer} ->
           % When workers are communicating among themselves.
           handle_rumer(CurrentActor, MaxActors, MessageList, GlobalMapping, Topology, SupervisorPid, Rumer, true)
-      after 1 ->
+      after 0 ->
         if
           % The current worker has at least received one message either from supervisor or another worker.
           HasValidMessage ->
