@@ -14,6 +14,7 @@
 
 %% Send the mapping of {Row, Col} -> Pid to all the workers
 send_global_state_2D({CurrentRow, CurrentCol}, {Rows, Cols}, Mapping) ->
+
   if
   % If all workers are send the global state - stop
     (CurrentRow > Rows) ->
@@ -29,6 +30,7 @@ send_global_state_2D({CurrentRow, CurrentCol}, {Rows, Cols}, Mapping) ->
       % Worker Id - send global state to that worker
       WorkerPid ! {global_state, self(), Mapping},
 
+      % Iterate for the 1st element of next row. 2D iteration.
       send_global_state_2D({CurrentRow + 1, 1}, {Rows, Cols}, Mapping);
 
   % Send the global state to next row and next column
@@ -40,6 +42,7 @@ send_global_state_2D({CurrentRow, CurrentCol}, {Rows, Cols}, Mapping) ->
       % Worker Id - send global state to that worker
       WorkerPid ! {global_state, self(), Mapping},
 
+      % Iterate to the next element (next column of same row).
       send_global_state_2D({CurrentRow, CurrentCol + 1}, {Rows, Cols}, Mapping)
   end.
 
@@ -49,21 +52,29 @@ spawn2D({CurrentRow, CurrentCol}, {Rows, Cols}, Topology, Algorithm, Mapping) ->
     (CurrentRow > Rows) ->
       io:format("Successfully spawned a 2D grid of [~p * ~p]~n", [Rows, Cols]),
       Mapping;
+
   %% If One Row is completed spawning move to the next row.
     (CurrentCol == Cols) ->
+
       %% Spawn the corresponding worker and get the Process Id back
       SpawnedPid = case Algorithm of
-                     gossip -> spawn_link(node(), gossip_worker, main, [{CurrentRow, CurrentCol}, {Rows, Cols}, Topology, self()]);
-                     push_sum -> spawn_link(node(), push_sum_worker, main, [{CurrentRow, CurrentCol}, {Rows, Cols}, Topology, ((Rows - 1) * Cols) + Cols , self()])
+                     gossip ->
+                       spawn_link(node(), gossip_worker, main, [{CurrentRow, CurrentCol}, {Rows, Cols}, Topology, self()]);
+                     push_sum ->
+                       spawn_link(node(), push_sum_worker, main, [{CurrentRow, CurrentCol}, {Rows, Cols}, Topology, ((Rows - 1) * Cols) + Cols, self()])
                    end,
 
       spawn2D({CurrentRow + 1, 1}, {Rows, Cols}, Topology, Algorithm, dict:store({CurrentRow, CurrentCol}, SpawnedPid, Mapping));
+
   %% Spawn the next column of current row
     true ->
+
       %% Spawn the corresponding worker and get the Process Id back
       SpawnedPid = case Algorithm of
-                     gossip -> spawn_link(node(), gossip_worker, main, [{CurrentRow, CurrentCol}, {Rows, Cols}, Topology, self()]);
-                     push_sum -> spawn_link(node(), push_sum_worker, main, [{CurrentRow, CurrentCol}, {Rows, Cols}, Topology, ((Rows - 1) * Cols) + Cols , self()])
+                     gossip ->
+                       spawn_link(node(), gossip_worker, main, [{CurrentRow, CurrentCol}, {Rows, Cols}, Topology, self()]);
+                     push_sum ->
+                       spawn_link(node(), push_sum_worker, main, [{CurrentRow, CurrentCol}, {Rows, Cols}, Topology, {((Rows - 1) * Cols) + Cols, 1}, self()])
                    end,
 
       spawn2D({CurrentRow, CurrentCol + 1}, {Rows, Cols}, Topology, Algorithm, dict:store({CurrentRow, CurrentCol}, SpawnedPid, Mapping))
