@@ -11,7 +11,7 @@
 
 
 %% API
--export([get_nearest_square_number/1, get_next_actor/3, check_if_list_converge_gossip/2, normalize_processes_count/2, check_if_push_sum_converge/2, update_fixed_list/3]).
+-export([get_nearest_square_number/1, get_next_actor/3, check_if_list_converge_gossip/2, check_if_push_sum_converge/2, update_fixed_list/3]).
 
 
 get_nearest_square_number(Number) ->

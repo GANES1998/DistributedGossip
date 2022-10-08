@@ -13,6 +13,54 @@ of [COP5615](https://ufl.instructure.com/courses/467300).
 
 #### Architecture
 
+```mermaid
+graph TD;
+
+subgraph supervisor
+A[User Ip] -.-> |Actors, Topology, Algorithm| B[Spawn];
+B --> BA{Algorithm};
+B --> C[Send Global State];
+C --> D[Send Secret/Initial S,W];
+D --> E[Wait for convergence]
+subgraph convergence
+E[Wait for convergence] --> F[First Convergance];
+F -.-> |Collect convergance| F;
+F --> G{No Convergance for 5 sec}; 
+G --> |No| F;
+end 
+G --> |Yes| H[Collect Metrics];
+H -.-> I(Convergence Time, Convergance Ratio);
+end
+
+subgraph worker
+BA -.-> |gossip| J;
+J[Wait Global Mapping] --> K{Check Convergance};
+K -.-> |Converged| E;
+K --> L((Wait for message));
+L --> N[Choose Neighbour];
+N --> O[Find Neighbor Pid];
+O --> P(Send Rumer);
+P -.-> K; 
+L --> |Message| M[Add to Message List];
+M --> MA[Update Current Secret Value];
+MA --> N;
+end
+
+subgraph psworker
+BA -.-> |push sum| JPS;
+JPS[Wait Global Mapping] --> KPS{Check Convergance};
+KPS -.-> |Converged| E;
+KPS --> NPS{Wait for Message};
+NPS --> |Sum & Weight| OPS[Compute Cumulative Sum & Weight];
+NPS -.-> |Timeout| QPS;
+OPS --> PPS[Choose One Neighbor];
+PPS --> QPS[Find Neightbor Pid];
+QPS --> RPS(Send Half Weight & Sum);
+RPS -.-> KPS;
+end
+
+```
+
 #### Steps of Execution
 
 1. Fill the [variables.env](variables.env) with appropriate values.
