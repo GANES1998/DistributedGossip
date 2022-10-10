@@ -1,0 +1,280 @@
+------------- Stating gossip - full - 100 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [100] workers are spawned
+1> Global State successfully casted to all workers
+1> Rumer [ganeson] received from the supervisor1> All [100] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [100] out of [100] (100.0 %) workers to conclude [729]!n1> ------------- Completed gossip - full - 100 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - full - 200 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [200] workers are spawned
+1> Global State successfully casted to all workers
+1> Rumer [ganeson] received from the supervisor1> Not heard from Any Workers for [ 5000 ] ms. Convergance Ratio = 0.995
+1> Wall Clock Time elasped for all [199] out of [200] (99.5 %) workers to conclude [502]!n1> ------------- Completed gossip - full - 200 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - full - 400 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [400] workers are spawned
+1> Global State successfully casted to all workers
+1> Rumer [ganeson] received from the supervisor1> All [400] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [400] out of [400] (100.0 %) workers to conclude [930]!n1> ------------- Completed gossip - full - 400 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - full - 800 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [800] workers are spawned
+1> Global State successfully casted to all workers
+1> Rumer [ganeson] received from the supervisor1> All [800] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [800] out of [800] (100.0 %) workers to conclude [959]!n1> ------------- Completed gossip - full - 800 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - full - 1600 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [1600] workers are spawned
+1> Global State successfully casted to all workers
+1> Rumer [ganeson] received from the supervisor1> All [1600] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [1600] out of [1600] (100.0 %) workers to conclude [1391]!n1> ------------- Completed gossip - full - 1600 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - line - 100 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [100] workers are spawned
+1> Global State successfully casted to all workers
+1> Rumer [ganeson] received from the supervisor1> Not heard from Any Workers for [ 5000 ] ms. Convergance Ratio = 0.85
+1> Wall Clock Time elasped for all [85] out of [100] (85.0 %) workers to conclude [686]!n1> ------------- Completed gossip - line - 100 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - line - 200 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [200] workers are spawned
+1> Global State successfully casted to all workers
+1> Rumer [ganeson] received from the supervisor1> Not heard from Any Workers for [ 5000 ] ms. Convergance Ratio = 0.8
+1> Wall Clock Time elasped for all [160] out of [200] (80.0 %) workers to conclude [1128]!n1> ------------- Completed gossip - line - 200 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - line - 400 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [400] workers are spawned
+1> Global State successfully casted to all workers
+1> Rumer [ganeson] received from the supervisor1> Not heard from Any Workers for [ 5000 ] ms. Convergance Ratio = 0.7925
+1> Wall Clock Time elasped for all [317] out of [400] (79.25 %) workers to conclude [5004]!n1> ------------- Completed gossip - line - 400 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - line - 800 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [800] workers are spawned
+1> Global State successfully casted to all workers
+1> Rumer [ganeson] received from the supervisor1> Not heard from Any Workers for [ 5000 ] ms. Convergance Ratio = 0.7975
+1> Wall Clock Time elasped for all [638] out of [800] (79.75 %) workers to conclude [10539]!n1> ------------- Completed gossip - line - 800 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - line - 1600 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [1600] workers are spawned
+1> Global State successfully casted to all workers
+1> Rumer [ganeson] received from the supervisor1> Not heard from Any Workers for [ 5000 ] ms. Convergance Ratio = 0.15
+1> Wall Clock Time elasped for all [240] out of [1600] (15.0 %) workers to conclude [17207]!n1> ------------- Completed gossip - line - 1600 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - twoD - 100 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> Successfully spawned a 2D grid of [10 * 10]
+1> Global State casted to all Workers 
+1> Rumer [ganeson] received from the supervisor1> Not heard from Any Workers for [ 5000 ] ms. Convergance Ratio = 0.94
+1> Wall Clock Time elasped for all [94] out of [100] (94.0 %) workers to conclude [103]!n1> ------------- Completed gossip - twoD - 100 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - twoD - 200 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+Given Actor Count [200] Not a square - It's adjusted to [196]1> Successfully spawned a 2D grid of [14 * 14]
+1> Global State casted to all Workers 
+1> Rumer [ganeson] received from the supervisor1> Not heard from Any Workers for [ 5000 ] ms. Convergance Ratio = 0.9132653061224489
+1> Wall Clock Time elasped for all [179] out of [196] (91.3265306122449 %) workers to conclude [301]!n1> ------------- Completed gossip - twoD - 200 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - twoD - 400 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> Successfully spawned a 2D grid of [20 * 20]
+1> Global State casted to all Workers 
+1> Rumer [ganeson] received from the supervisor1> Not heard from Any Workers for [ 5000 ] ms. Convergance Ratio = 0.9375
+1> Wall Clock Time elasped for all [375] out of [400] (93.75 %) workers to conclude [464]!n1> ------------- Completed gossip - twoD - 400 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - twoD - 800 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+Given Actor Count [800] Not a square - It's adjusted to [784]1> Successfully spawned a 2D grid of [28 * 28]
+1> Global State casted to all Workers 
+1> Rumer [ganeson] received from the supervisor1> Not heard from Any Workers for [ 5000 ] ms. Convergance Ratio = 0.9502551020408163
+1> Wall Clock Time elasped for all [745] out of [784] (95.02551020408163 %) workers to conclude [977]!n1> ------------- Completed gossip - twoD - 800 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - twoD - 1600 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> Successfully spawned a 2D grid of [40 * 40]
+1> Global State casted to all Workers 
+1> Rumer [ganeson] received from the supervisor1> Not heard from Any Workers for [ 5000 ] ms. Convergance Ratio = 0.93375
+1> Wall Clock Time elasped for all [1494] out of [1600] (93.375 %) workers to conclude [2003]!n1> ------------- Completed gossip - twoD - 1600 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - twoDImperfect - 100 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> Successfully spawned a 2D grid of [10 * 10]
+1> Global State casted to all Workers 
+1> Rumer [ganeson] received from the supervisor1> All [100] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [100] out of [100] (100.0 %) workers to conclude [45]!n1> ------------- Completed gossip - twoDImperfect - 100 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - twoDImperfect - 200 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+Given Actor Count [200] Not a square - It's adjusted to [196]1> Successfully spawned a 2D grid of [14 * 14]
+1> Global State casted to all Workers 
+1> Rumer [ganeson] received from the supervisor1> All [196] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [196] out of [196] (100.0 %) workers to conclude [202]!n1> ------------- Completed gossip - twoDImperfect - 200 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - twoDImperfect - 400 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> Successfully spawned a 2D grid of [20 * 20]
+1> Global State casted to all Workers 
+1> Rumer [ganeson] received from the supervisor1> All [400] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [400] out of [400] (100.0 %) workers to conclude [88]!n1> ------------- Completed gossip - twoDImperfect - 400 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - twoDImperfect - 800 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+Given Actor Count [800] Not a square - It's adjusted to [784]1> Successfully spawned a 2D grid of [28 * 28]
+1> Global State casted to all Workers 
+1> Rumer [ganeson] received from the supervisor1> All [784] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [784] out of [784] (100.0 %) workers to conclude [284]!n1> ------------- Completed gossip - twoDImperfect - 800 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating gossip - twoDImperfect - 1600 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> Successfully spawned a 2D grid of [40 * 40]
+1> Global State casted to all Workers 
+1> Rumer [ganeson] received from the supervisor1> All [1600] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [1600] out of [1600] (100.0 %) workers to conclude [610]!n1> ------------- Completed gossip - twoDImperfect - 1600 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - full - 100 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [100] workers are spawned
+1> Global State successfully casted to all workers
+1> Element - Weight [1, 1] received from the supervisor1> All [100] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [100] out of [100] (100.0 %) workers to conclude [3530]!n1> ------------- Completed push_sum - full - 100 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - full - 200 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [200] workers are spawned
+1> Global State successfully casted to all workers
+1> Element - Weight [1, 1] received from the supervisor1> All [200] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [200] out of [200] (100.0 %) workers to conclude [3531]!n1> ------------- Completed push_sum - full - 200 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - full - 400 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [400] workers are spawned
+1> Global State successfully casted to all workers
+1> Element - Weight [1, 1] received from the supervisor1> All [400] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [400] out of [400] (100.0 %) workers to conclude [6620]!n1> ------------- Completed push_sum - full - 400 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - full - 800 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [800] workers are spawned
+1> Global State successfully casted to all workers
+1> Element - Weight [1, 1] received from the supervisor1> All [800] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [800] out of [800] (100.0 %) workers to conclude [6338]!n1> ------------- Completed push_sum - full - 800 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - full - 1600 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [1600] workers are spawned
+1> Global State successfully casted to all workers
+1> Element - Weight [1, 1] received from the supervisor1> All [1600] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [1600] out of [1600] (100.0 %) workers to conclude [6535]!n1> ------------- Completed push_sum - full - 1600 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - line - 100 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [100] workers are spawned
+1> Global State successfully casted to all workers
+1> Element - Weight [1, 1] received from the supervisor1> All [100] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [100] out of [100] (100.0 %) workers to conclude [14312]!n1> ------------- Completed push_sum - line - 100 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - line - 200 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [200] workers are spawned
+1> Global State successfully casted to all workers
+1> Element - Weight [1, 1] received from the supervisor1> All [200] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [200] out of [200] (100.0 %) workers to conclude [16948]!n1> ------------- Completed push_sum - line - 200 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - line - 400 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [400] workers are spawned
+1> Global State successfully casted to all workers
+1> Element - Weight [1, 1] received from the supervisor1> All [400] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [400] out of [400] (100.0 %) workers to conclude [22844]!n1> ------------- Completed push_sum - line - 400 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - line - 800 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [800] workers are spawned
+1> Global State successfully casted to all workers
+1> Element - Weight [1, 1] received from the supervisor1> All [800] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [800] out of [800] (100.0 %) workers to conclude [15711]!n1> ------------- Completed push_sum - line - 800 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - line - 1600 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> All [1600] workers are spawned
+1> Global State successfully casted to all workers
+1> Element - Weight [1, 1] received from the supervisor1> All [1600] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [1600] out of [1600] (100.0 %) workers to conclude [18809]!n1> ------------- Completed push_sum - line - 1600 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - twoD - 100 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> Successfully spawned a 2D grid of [10 * 10]
+1> Global State casted to all Workers 
+1> Element - Weight [1, 1] received from the supervisor1> All [100] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [100] out of [100] (100.0 %) workers to conclude [8075]!n1> ------------- Completed push_sum - twoD - 100 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - twoD - 200 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+Given Actor Count [200] Not a square - It's adjusted to [196]1> Successfully spawned a 2D grid of [14 * 14]
+1> Global State casted to all Workers 
+1> Element - Weight [1, 1] received from the supervisor1> All [196] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [196] out of [196] (100.0 %) workers to conclude [12793]!n1> ------------- Completed push_sum - twoD - 200 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - twoD - 400 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> Successfully spawned a 2D grid of [20 * 20]
+1> Global State casted to all Workers 
+1> Element - Weight [1, 1] received from the supervisor1> Not heard from Any Workers for [ 5000 ] ms. Convergance Ratio = 0.0375
+1> Wall Clock Time elasped for all [15] out of [400] (3.75 %) workers to conclude [8262]!n1> ------------- Completed push_sum - twoD - 400 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - twoD - 800 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+Given Actor Count [800] Not a square - It's adjusted to [784]1> Successfully spawned a 2D grid of [28 * 28]
+1> Global State casted to all Workers 
+1> Element - Weight [1, 1] received from the supervisor1> Not heard from Any Workers for [ 5000 ] ms. Convergance Ratio = 0.3826530612244898
+1> Wall Clock Time elasped for all [300] out of [784] (38.265306122448976 %) workers to conclude [119215]!n1> ------------- Completed push_sum - twoD - 800 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - twoD - 1600 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> Successfully spawned a 2D grid of [40 * 40]
+1> Global State casted to all Workers 
+1> Element - Weight [1, 1] received from the supervisor1> Not heard from Any Workers for [ 5000 ] ms. Convergance Ratio = 0.0375
+1> Wall Clock Time elasped for all [60] out of [1600] (3.75 %) workers to conclude [17513]!n1> ------------- Completed push_sum - twoD - 1600 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - twoDImperfect - 100 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> Successfully spawned a 2D grid of [10 * 10]
+1> Global State casted to all Workers 
+1> Element - Weight [1, 1] received from the supervisor1> All [100] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [100] out of [100] (100.0 %) workers to conclude [6037]!n1> ------------- Completed push_sum - twoDImperfect - 100 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - twoDImperfect - 200 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+Given Actor Count [200] Not a square - It's adjusted to [196]1> Successfully spawned a 2D grid of [14 * 14]
+1> Global State casted to all Workers 
+1> Element - Weight [1, 1] received from the supervisor1> All [196] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [196] out of [196] (100.0 %) workers to conclude [6637]!n1> ------------- Completed push_sum - twoDImperfect - 200 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - twoDImperfect - 400 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> Successfully spawned a 2D grid of [20 * 20]
+1> Global State casted to all Workers 
+1> Element - Weight [1, 1] received from the supervisor1> All [400] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [400] out of [400] (100.0 %) workers to conclude [8212]!n1> ------------- Completed push_sum - twoDImperfect - 400 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - twoDImperfect - 800 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+Given Actor Count [800] Not a square - It's adjusted to [784]1> Successfully spawned a 2D grid of [28 * 28]
+1> Global State casted to all Workers 
+1> Element - Weight [1, 1] received from the supervisor1> All [784] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [784] out of [784] (100.0 %) workers to conclude [8911]!n1> ------------- Completed push_sum - twoDImperfect - 800 ACTORS----------------------------------------------
+=========================================================================================================
+------------- Stating push_sum - twoDImperfect - 1600 ACTORS ------------------------------------------------
+Eshell V13.1  (abort with ^G)
+1> Successfully spawned a 2D grid of [40 * 40]
+1> Global State casted to all Workers 
+1> Element - Weight [1, 1] received from the supervisor1> All [1600] Workers Agreed after gossip 
+1> Wall Clock Time elasped for all [1600] out of [1600] (100.0 %) workers to conclude [10705]!n1> ------------- Completed push_sum - twoDImperfect - 1600 ACTORS----------------------------------------------
+=========================================================================================================

@@ -61,7 +61,7 @@ spawn2D({CurrentRow, CurrentCol}, {Rows, Cols}, Topology, Algorithm, Mapping) ->
                      gossip ->
                        spawn_link(node(), gossip_worker, main, [{CurrentRow, CurrentCol}, {Rows, Cols}, Topology, self()]);
                      push_sum ->
-                       spawn_link(node(), push_sum_worker, main, [{CurrentRow, CurrentCol}, {Rows, Cols}, Topology, ((Rows - 1) * Cols) + Cols, self()])
+                       spawn_link(node(), push_sum_worker, main, [{CurrentRow, CurrentCol}, {Rows, Cols}, Topology, {((CurrentRow - 1) * Cols) + CurrentCol, 1}, self()])
                    end,
 
       spawn2D({CurrentRow + 1, 1}, {Rows, Cols}, Topology, Algorithm, dict:store({CurrentRow, CurrentCol}, SpawnedPid, Mapping));
